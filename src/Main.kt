@@ -23,8 +23,6 @@ fun main() {
             }
         }
 
-
-
         fun login() {
             println("------------------------")
             print("Please input Username: ")
@@ -33,13 +31,11 @@ fun main() {
             val inputPassword: String = readLine()!!
             println("------------------------")
 
-
-
             if (!User().user.containsKey(inputUserName) || inputPassword != User().user.get(inputUserName)) {
                 println("Username atau password salah")
                 login()
             }else{
-                pembelianTiket()
+                pembelianTiket(inputUserName)
             }
         }
 
@@ -55,23 +51,24 @@ fun main() {
     main2()
 }
 
-fun pembelianTiket() {
 
+fun pembelianTiket(index: String) {
     println(" ")
-    println("------------------------------")
-    println("     == Selamat Datang,   ==")
-    println("------------------------------")
+    println("---------------------------------")
+    println("==  Selamat Datang, ${index}   ==")
+    println("---------------------------------")
     println("1. Pembelian Tiket")
     println("2. Logout")
-    println("Note: tulis A,B,C,D atau E untuk memilih menu")
+    println("Note: tulis 1 atau 2 untuk memilih menu")
     print("Masukkan pilihan menu: ")
+
     val inputPilihan: String = readLine()!!
 
     fun selesai() {
         println("Apakah anda ingin kembali? (Yes/No) ")
         val checkNextStudy: String = readLine()!!
         if (checkNextStudy == "Yes") {
-            return pembelianTiket()
+            return pembelianTiket(index)
         } else {
             println("-----  ---------------------------------  -----")
             println("-----             Terimakasih             -----")
@@ -90,7 +87,7 @@ fun pembelianTiket() {
         "2" -> selesai()
         else -> {
             println(" Check note untuk cara memilih menu!")
-            return pembelianTiket()
+            return pembelianTiket(index)
         }
     }
 
