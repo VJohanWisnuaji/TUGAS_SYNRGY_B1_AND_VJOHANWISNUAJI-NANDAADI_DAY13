@@ -1,20 +1,45 @@
 import java.util.*
 fun main() {
 
-    fun main() {
+    fun main2() {
         println("------------------------")
         println("-------MENU UTAMA-------")
         println("1. Login")
         println("0. Exit")
         print("Pilih menu: ")
         var inputMenu: String = readLine()!!
-        println("------------------------")
-        print("Please input Username: ")
-        print("Please input Password: ")
-        val inputUserName: String = readLine()!!
-        val inputPassword: String = readLine()!!
-        println("------------------------")
 
+
+        fun selesai() {
+            println("Apakah anda ingin kembali? (Yes/No) ")
+            val checkNextStudy: String = readLine()!!
+            if (checkNextStudy == "Yes") {
+                return main2()
+            } else {
+                println("-----  ---------------------------------  -----")
+                println("-----             Terimakasih             -----")
+                println("-----  ---------------------------------  -----")
+            }
+        }
+
+        fun login() {
+            println("------------------------")
+            print("Please input Username: ")
+            print("Please input Password: ")
+            val inputUserName: String = readLine()!!
+            val inputPassword: String = readLine()!!
+            println("------------------------")
+        }
+
+
+        when(inputMenu){
+            "1" -> login()
+            "0" ->selesai()
+            else -> {
+                println("Pilihan tidak ada silahkan ulangi kembali")
+                main2()
+            }
+        }
 
     }
 
@@ -22,7 +47,7 @@ fun main() {
 
         println(" ")
         println("------------------------------")
-        println("     == Selamat Data,  ==")
+        println("     == Selamat Datang,   ==")
         println("------------------------------")
         println("1. Pembelian Tiket")
         println("2. Logout")
@@ -37,7 +62,7 @@ fun main() {
                 return pembelianTiket()
             } else {
                 println("-----  ---------------------------------  -----")
-                println("-----  Terimakasih sudah menggunakan ATM  -----")
+                println("-----             Terimakasih             -----")
                 println("-----  ---------------------------------  -----")
             }
         }
@@ -59,4 +84,5 @@ fun main() {
         }
 
     }
+    main()
 }
