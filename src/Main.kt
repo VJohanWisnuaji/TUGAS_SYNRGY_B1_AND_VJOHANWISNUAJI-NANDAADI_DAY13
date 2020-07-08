@@ -1,4 +1,5 @@
 import java.util.*
+
 fun main() {
 
     fun main2() {
@@ -22,67 +23,75 @@ fun main() {
             }
         }
 
+
+
         fun login() {
             println("------------------------")
             print("Please input Username: ")
-            print("Please input Password: ")
             val inputUserName: String = readLine()!!
+            print("Please input Password: ")
             val inputPassword: String = readLine()!!
             println("------------------------")
+
+
+
+            if (!User().user.containsKey(inputUserName) || inputPassword != User().user.get(inputUserName)) {
+                println("Username atau password salah")
+                login()
+            }else{
+                pembelianTiket()
+            }
         }
 
-
-        when(inputMenu){
+        when (inputMenu) {
             "1" -> login()
-            "0" ->selesai()
+            "0" -> selesai()
             else -> {
                 println("Pilihan tidak ada silahkan ulangi kembali")
                 main2()
             }
         }
+    }
+    main2()
+}
 
+fun pembelianTiket() {
+
+    println(" ")
+    println("------------------------------")
+    println("     == Selamat Datang,   ==")
+    println("------------------------------")
+    println("1. Pembelian Tiket")
+    println("2. Logout")
+    println("Note: tulis A,B,C,D atau E untuk memilih menu")
+    print("Masukkan pilihan menu: ")
+    val inputPilihan: String = readLine()!!
+
+    fun selesai() {
+        println("Apakah anda ingin kembali? (Yes/No) ")
+        val checkNextStudy: String = readLine()!!
+        if (checkNextStudy == "Yes") {
+            return pembelianTiket()
+        } else {
+            println("-----  ---------------------------------  -----")
+            println("-----             Terimakasih             -----")
+            println("-----  ---------------------------------  -----")
+        }
     }
 
-    fun pembelianTiket() {
+    when (inputPilihan) {
+        "1" -> {
+            println("------------------------------")
+            println("--------Pilih Maskapai--------")
+            println("------------------------------")
 
-        println(" ")
-        println("------------------------------")
-        println("     == Selamat Datang,   ==")
-        println("------------------------------")
-        println("1. Pembelian Tiket")
-        println("2. Logout")
-        println("Note: tulis A,B,C,D atau E untuk memilih menu")
-        print("Masukkan pilihan menu: ")
-        val inputPilihan: String = readLine()!!
-
-        fun selesai() {
-            println("Apakah anda ingin kembali? (Yes/No) ")
-            val checkNextStudy: String = readLine()!!
-            if (checkNextStudy == "Yes") {
-                return pembelianTiket()
-            } else {
-                println("-----  ---------------------------------  -----")
-                println("-----             Terimakasih             -----")
-                println("-----  ---------------------------------  -----")
-            }
+            selesai()
         }
-
-        when (inputPilihan) {
-            "1" -> {
-                println("-------------------------")
-                println("--------CEK SALDO--------")
-                println("-------------------------")
-
-//                atm.ceksaldo()
-                selesai()
-            }
-            "2" -> selesai()
-            else -> {
-                println(" Check note untuk cara memilih menu!")
-                return pembelianTiket()
-            }
+        "2" -> selesai()
+        else -> {
+            println(" Check note untuk cara memilih menu!")
+            return pembelianTiket()
         }
-
     }
-    main()
+
 }
