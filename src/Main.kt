@@ -93,20 +93,28 @@ fun pembelianTiket() {
                 "1" -> {
                     Maskapai.maskapai = "Binar Air Economy"
                     Maskapai.harga = 355000
-
                     Pembayaran().bayar()
                 }
                 "2" -> {
                     Maskapai.maskapai = "Binar Air Executive"
                     Maskapai.harga = 775000
+                    Pembayaran().bayar()
+                }
+                "3" -> {
 
-            selesai()
+                }
+                else -> {
+                    println(" Pilihan tidak ada silahkan cek kembali")
+                    return pembelianTiket()
+                }
+            }
         }
+
         "2" -> selesai()
         else -> {
-            println(" Pilihan tidak ada silahkan cek kembali")
-            return maskapai()
+                println(" Pilihan tidak ada silahkan cek kembali")
+                return pembelianTiket()
+            }
         }
     }
 
-}

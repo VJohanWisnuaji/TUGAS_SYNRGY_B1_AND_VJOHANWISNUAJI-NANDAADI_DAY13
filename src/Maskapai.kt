@@ -1,5 +1,5 @@
 object Maskapai {
-        var maskapai:String = ""
+        var maskapai:String = "contoh"
         var harga:Int = 0
 
 }
