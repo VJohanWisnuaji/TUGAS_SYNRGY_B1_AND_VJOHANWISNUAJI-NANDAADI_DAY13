@@ -5,19 +5,23 @@ class Pembayaran() {
     val localeID = Locale("in", "ID")
     val numberFormat = NumberFormat.getCurrencyInstance(localeID)
 
-    fun bayar(jumlah: Int)
-        val sisa: Int = jumlah % 355000
-        if (sisa > 1) {
+    fun bayar()
+        println("Pembayaran ${Maskapai.maskapai}")
+        print("Masukkan nominal uang anda: ")
+        val jumlah: String = readLine()!!
+        val sisa: Int = jumlah % Maskapai.harga
+        if (jumlah < sisa) {
+            println("Uang yang anda bayarkan adalah sebesar ${numberFormat.format(jumlah).toString()}")
+            println("Uang Anda kurang silahkan ulang proses")
+            pembelianTiket()
+        }
+        else if (sisa > 1) {
+            println("============================================================================")
+            println("Uang yang anda bayarkan adalah sebesar ${numberFormat.format(jumlah).toString()}")
             println("Uang Anda akan dikembalikan sebesar ${numberFormat.format(sisa).toString()}")
-            println("============================================================================")
-            this.sisasaldo = sisasaldo + jumlah - sisa
-            println("Uang yang anda tabungkan adalah sebesar ${numberFormat.format(jumlah - sisa).toString()}")
-            println("Saldo anda menjadi ${numberFormat.format(sisasaldo).toString()}")
-            println("============================================================================")
+            println("============================================================================"))
         } else {
-            this.sisasaldo = sisasaldo + jumlah
-            println("Uang yang anda setor adalah sebesar ${numberFormat.format(jumlah).toString()}")
-            println("Saldo anda menjadi ${numberFormat.format(sisasaldo).toString()}")
+            println("Uang yang anda bayarkan adalah sebesar ${numberFormat.format(jumlah).toString()}")
             println("============================================================================")
         }
     }

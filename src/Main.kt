@@ -81,8 +81,34 @@ fun pembelianTiket(index: String) {
             println("------------------------------")
             println("--------Pilih Maskapai--------")
             println("------------------------------")
+            println("Pembelian Tiket")
+            println("1. Binar Air Economy    CGK-YIA PP - Rp. 355.000,00")
+            println("2. Binar Air Executive  CGK-YIA PP - Rp. 775.000,00")
+            println("3. Kembali ke menu sebelumnya")
+            print("Masukkan pilihan menu: ")
+            val maskapai: String = readLine()!!
+            when (maskapai) {
+                "1" -> {
+                    Maskapai.maskapai = "Binar Air Economy"
+                    Maskapai.harga = 355000
 
-            selesai()
+                    Pembayaran().bayar()
+                }
+                "2" -> {
+                    Maskapai.maskapai = "Binar Air Executive"
+                    Maskapai.harga = 775000
+
+
+                }
+                "3" -> {
+                    pembelianTiket()
+                }
+                else -> {
+                    println(" Check note untuk cara memilih menu!")
+                    return pembelianTiket(index)
+                }
+            }
+
         }
         "2" -> selesai()
         else -> {
